@@ -12,3 +12,8 @@ for i in range(15):
   plt.imshow(digits.images[i],cmap="gray")
 
 plt.show()
+
+d0 = digits.images[0]
+plt.imshow(d0,cmap="gray")
+plt.show()
+print(d0)
