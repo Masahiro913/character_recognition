@@ -1,6 +1,8 @@
 from sklearn.model_selection import train_test_split
 from sklearn import datasets, svm, metrics
 from sklearn.metrics import accuracy_score
+import joblib 
+#最新のsklearnバージョンにはjoblibはsklearn.externalsにバインドされていない
 
 #データを読み込む
 digits = datasets.load_digits()
@@ -18,3 +20,7 @@ clf.fit(x_train,y_train)
 #予測して精度を確認する
 y_pred=clf.predict(x_test)
 print(accuracy_score(y_test,y_pred))
+
+#joblibを用いての学習済みデータの保存
+joblib.dump(clf,"digits.pkl")
+clf = joblib.load("digits.pkl")
